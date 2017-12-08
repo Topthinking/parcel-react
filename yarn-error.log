@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/Cellar/yarn/1.3.2/libexec/bin/yarn.js add babel-preset-env
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.3.2/libexec/bin/yarn.js add postcss-modules autoprefixer
 
 PATH: 
   /usr/local/Cellar/varnish/5.1.3/sbin:/Library/Frameworks/Python.framework/Versions/3.5/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/Cellar/varnish/5.1.3/sbin:/Library/Frameworks/Python.framework/Versions/3.5/bin
@@ -19,7 +19,13 @@ npm manifest:
     "version": "1.0.0",
     "main": "index.js",
     "license": "MIT",
+    "scripts":{
+      "dev":"parcel index.html"
+    },
     "dependencies": {
+      "babel-preset-es2015": "^6.24.1",
+      "babel-preset-react": "^6.24.1",
+      "babel-preset-stage-0": "^6.24.1",
       "node-sass": "^4.7.2",
       "react": "^16.2.0",
       "react-dom": "^16.2.0"

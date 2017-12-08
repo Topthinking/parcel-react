@@ -23,3 +23,12 @@ npm run dev
 ### [中文文档](http://www.parceljs.io)
 
 ### [英文文档](https://parceljs.org/)
+
+### 需求
+
+- [x] 文件结构
+- [ ] 代码拆分
+
+### ⚠️  注意
+
+css在引用图片资源时，用引号包裹起来，不包裹，`parcel`会不识别
