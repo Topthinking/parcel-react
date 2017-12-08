@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/Cellar/yarn/1.3.2/libexec/bin/yarn.js add postcss-modules autoprefixer
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.3.2/libexec/bin/yarn.js add babel-polyfill
 
 PATH: 
   /usr/local/Cellar/varnish/5.1.3/sbin:/Library/Frameworks/Python.framework/Versions/3.5/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/Cellar/varnish/5.1.3/sbin:/Library/Frameworks/Python.framework/Versions/3.5/bin
@@ -19,14 +19,17 @@ npm manifest:
     "version": "1.0.0",
     "main": "index.js",
     "license": "MIT",
-    "scripts":{
-      "dev":"parcel index.html"
+    "scripts": {
+      "dev": "parcel index.html"
     },
     "dependencies": {
+      "autoprefixer": "^7.2.2",
       "babel-preset-es2015": "^6.24.1",
       "babel-preset-react": "^6.24.1",
       "babel-preset-stage-0": "^6.24.1",
+      "fs": "^0.0.1-security",
       "node-sass": "^4.7.2",
+      "postcss-modules": "^1.1.0",
       "react": "^16.2.0",
       "react-dom": "^16.2.0"
     }
@@ -39,4 +42,4 @@ Lockfile:
   No lockfile
 
 Trace: 
-  Error: 140735515329344:error:1408F119:SSL routines:SSL3_GET_RECORD:decryption failed or bad record mac:../deps/openssl/openssl/ssl/s3_pkt.c:535:
+  Error: ENOENT: no such file or directory, copyfile '/Users/top/Library/Caches/Yarn/v1/npm-has-flag-1.0.0-9d9e793165ce017a00f00418c43f942a7b1d11fa/license' -> '/Users/top/tool/parcel/parcel-react/node_modules/css-modules-loader-core/node_modules/has-flag/license'
