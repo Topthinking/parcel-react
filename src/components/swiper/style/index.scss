@@ -1,3 +1,67 @@
-.swiper{
-    width: 400px;
+
+@import '../../../common/styles/mixin.scss';
+
+.wraper{
+    width: 600px;
+}
+
+// .swiper-container{
+// .swiper-wrapper{
+//     @include wh(100%,100%);
+// }
+
+// .swiper-container1,.swiper-container2{
+//     width: 600px;
+// }
+
+// .tab{
+//     width: 100px;
+// }
+
+// .tab{
+//     width: 200px !important;
+// }
+
+.swiper-slide{
+    height: 300px; 
+    color: #fff;
+    line-height: 300px;
+    text-align: center;
+    font-size: 50px; 
+}
+
+.blue{
+    @include bg(#4390EE)
+}
+
+.red{
+    @include bg(#CA4040)    
+}
+
+.black{
+    @include bg(#FF8604)        
+}
+
+.swiper-pagination{
+    width: 600px;
+    position: relative;
+    height: 50px;
+    ul{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 50px;
+        margin: 0;
+    }
+    li{
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        float: left;
+        cursor: pointer;
+    }
+
+    li.active{
+        color:red;
+    }
 }

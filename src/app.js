@@ -2,11 +2,9 @@
 import React from 'react'
 import { HashRouter,BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 
-
 import Index from './pages/index/index.js'
 import Home from './pages/home/index.js'
 
-import './common/styles/common.scss'
 import bg from './common/images/2.jpg' 
 
 export default class App extends React.Component { 

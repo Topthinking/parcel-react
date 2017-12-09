@@ -28,6 +28,7 @@ npm run dev
 
 - [x] 文件结构
 - [x] 代码拆分 通过`bundle.js`统一管理
+- [x] 学习Swiper
 
 ### ⚠️  注意
 
