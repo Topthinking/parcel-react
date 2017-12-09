@@ -1,5 +1,7 @@
 # Parcel 打包 React项目
 
+项目中集成了`react-router-dom` `swiper`
+
 ## 快速体验
 ```shell
 yarn global add parcel-bundler
@@ -29,6 +31,7 @@ npm run dev
 - [x] 文件结构
 - [x] 代码拆分 通过`bundle.js`统一管理
 - [x] 学习Swiper
+- [ ] 打包发布
 
 ### ⚠️  注意
 

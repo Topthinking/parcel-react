@@ -59,9 +59,37 @@
         list-style-type: none;
         float: left;
         cursor: pointer;
-    }
+        position: relative;
+        width: 100px;
 
-    li.active{
-        color:red;
+        .item{
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            white-space: pre;
+        }
+
+        .item:before{
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: block;
+            content: attr(data-content);
+            overflow: hidden;
+        }
+
+        .itemleft {
+            color: #000;
+        }
+        .itemleft:before {            
+            color: #f00;
+        }
+
+        .itemright {           
+            color: #f00;            
+        }
+        .itemright:before {           
+            color: #000;
+        }
     }
 }

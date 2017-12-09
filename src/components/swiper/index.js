@@ -9,19 +9,22 @@ class Index extends React.Component {
         super()
 
         const tab = [{
-            name: '首页'
+            name: '首页',
+            progress: '100%',
         }, {
-            name: '前端'
+            name: '前端',
+            progress: 0
         }, {
-            name: '人工智能'
+            name: '人工智能',
+            progress: 0
         }]
-        
+
         const area = 1 / (tab.length - 1)
-        
+
         const areaState = []
-        tab.map((item, index) => { 
+        tab.map((item, index) => {
             item.position = index * area
-            if (index+1 < tab.length) {
+            if (index + 1 < tab.length) {
                 areaState.push({
                     'min': index * area,
                     'max': (index + 1) * area,
@@ -34,7 +37,7 @@ class Index extends React.Component {
         this.state = {
             tab,
             areaState,
-            active: 1
+            active: 0
         }
 
         this.area = area
@@ -46,7 +49,7 @@ class Index extends React.Component {
     changeTab(index) {
         this.Swiper2 && this.Swiper2.slideTo(index, 1000, false)
         this.setState({
-            active:index
+            active: index
         })
     }
 
@@ -58,11 +61,11 @@ class Index extends React.Component {
 
     componentDidMount() {
         const self = this
-        let lastProgress = 0
+        let lastProgress = 0, progressed = false
         this.Swiper1 = new Swiper('#swiper-container1');
         this.Swiper2 = new Swiper('#swiper-container2', {
             watchSlidesProgress: true,
-            initialSlide:self.state.active,
+            initialSlide: self.state.active,
             controller: {
                 control: self.Swiper1, //控制Swiper1
             },
@@ -79,11 +82,41 @@ class Index extends React.Component {
                     })
                 },
                 progress: function (progress) {
-                    console.log(lastProgress,progress)
+                    if (progressed) {
+                        self.state.areaState.map((item, index) => {
+                            if (progress > lastProgress) {
+                                // 向右滑
+                                if (progress <= item.max && lastProgress >= item.min) {
+
+                                    const _area = ((progress - index*self.area) / self.area) * 100
+
+                                    self.state.tab[item['max-index']]['progress'] = _area + '%'
+                                    self.state.tab[item['min-index']]['progress'] = _area + '%'
+                                    self.state.tab[item['max-index']]['run'] = 'left'
+                                    self.state.tab[item['min-index']]['run'] = 'right'
+                                    self.setState({ tab: self.state.tab })
+                                }
+                            } else {
+                                // 向左滑
+                                if (progress >= item.min && lastProgress <= item.max) {
+
+                                    const _area = ((index*self.area - progress ) / self.area) * 100
+                                    
+                                    self.state.tab[item['max-index']]['progress'] = _area + '%'
+                                    self.state.tab[item['min-index']]['progress'] = _area + '%'
+                                    self.state.tab[item['max-index']]['run'] = 'left'
+                                    self.state.tab[item['min-index']]['run'] = 'right'
+                                    self.setState({ tab: self.state.tab })
+                                    
+                                }
+                            }
+                        })
+
+                    } else {
+                        progressed = true
+                    }
                     lastProgress = progress
-                    console.log(self.state.areaState)
-                    console.log(progress);
-                }, 
+                },
             }
         })
 
@@ -97,8 +130,15 @@ class Index extends React.Component {
         })
     }
 
-    render() {        
-        
+    render() {
+
+        //     <div>
+        //     {item.name}    
+        //     <span styleName="active" style={{width:item.progrcess}}>
+        //         <span styleName="txt">{item.name}</span>
+        //     </span>    
+        // </div>
+
         return (
             <div styleName="wraper">
                 <div className="swiper-container" id="swiper-container1" styleName="swiper-container1">
@@ -112,15 +152,26 @@ class Index extends React.Component {
                 <br />
                 <div className="swiper-pagination" styleName="swiper-pagination">
                     <ul>
-                        {this.state.tab.map((item,index) => { 
+                        {this.state.tab.map((item, index) => {
                             return (
                                 <li key={index}
-                                    onClick={this.changeTab.bind(this,index)}    
+                                    onClick={this.changeTab.bind(this, index)}
                                     styleName={index === this.state.active ? 'active' : ''}>
-                                {item.name}
-                            </li>
+                                    <style dangerouslySetInnerHTML={{
+                                        __html: `
+                                        .item${index}:before{
+                                            width:${item.progress}
+                                        }
+                                        ` }}></style>
+                                    <span className={`item${index}`}
+                                        styleName={`item ${item.run == 'right' ? 'itemright' : 'itemleft'}`}
+                                        data-content={item.name}
+                                    >
+                                        {item.name}
+                                    </span>
+                                </li>
                             )
-                        })} 
+                        })}
                     </ul>
                 </div>
                 <div className="swiper-container" id="swiper-container2" styleName="swiper-container2">
