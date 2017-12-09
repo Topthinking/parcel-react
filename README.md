@@ -2,6 +2,8 @@
 
 项目中集成了`react-router-dom` `swiper`
 
+目前仅开放环境可以调通，热更新和发布`parcel`还没完善
+
 ## 快速体验
 ```shell
 yarn global add parcel-bundler
