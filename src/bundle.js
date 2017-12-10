@@ -44,7 +44,7 @@ export default (props = {}) => {
         render() {
             const { Component } = this.state            
             Object.assign(props, { ...this.props })            
-            return Component == null ? '<h1>加载中..</h1>' : <Component {...props} />
+            return Component == null ? <h1>加载中..</h1> : <Component {...props} />
         }
     }
 
