@@ -22,7 +22,9 @@ npm run dev
 
 本地`http://localhost:3000`查看
 
-### [项目演示](https://topthinking.github.io/parcel-react/#/)
+## 资料
+
+### 
 
 ### [Parcel gitHub](https://github.com/parcel-bundler/parcel)
 
@@ -30,13 +32,22 @@ npm run dev
 
 ### [英文文档](https://parceljs.org/)
 
-### 需求
+## 演示
+
+[地址](https://topthinking.github.io/parcel-react/#/)
+
+扫码查看
+
+![](./doc/demo.png)
+
+
+## 需求
 
 - [x] 文件结构
 - [x] 代码拆分 通过`bundle.js`统一管理
 - [x] 学习Swiper
 - [x] 打包发布
 
-### ⚠️  注意
+## ⚠️  注意
 
 css在引用图片资源时，用引号包裹起来，不包裹，`parcel`会不识别
