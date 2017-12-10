@@ -22,6 +22,8 @@ npm run dev
 
 本地`http://localhost:3000`查看
 
+### [项目演示](https://topthinking.github.io/parcel-react/#/)
+
 ### [Parcel gitHub](https://github.com/parcel-bundler/parcel)
 
 ### [中文文档](http://www.parceljs.io)
