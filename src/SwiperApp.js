@@ -3,13 +3,13 @@ import { observer, inject } from 'mobx-react'
 import CSSModules from 'react-css-modules'
 import Swiper from 'swiper'
 
-import Index from '../../components/menu/index'
-import Home from '../../components/menu/home'
-import Mine from '../../components/menu/mine'
+import Index from './components/menu/index'
+import Home from './components/menu/home'
+import Mine from './components/menu/mine'
 
-import MenuStore from '../../stores/Menu'
+import MenuStore from './stores/Menu'
 
-import style from './index.scss'
+import style from './common/styles/app.scss'
 
 @observer
 class SwiperApp extends React.Component {
@@ -17,7 +17,7 @@ class SwiperApp extends React.Component {
     constructor() {
         super()
 
-        let tab = [{
+        const tab = [{
             name: '首页',
             progress: '100%',
             component: <Index/>
@@ -46,31 +46,15 @@ class SwiperApp extends React.Component {
             }
         })
 
-        tab = this.computedActive(MenuStore.active,0,tab)
-        
         this.state = {
             tab,
             areaState,
-            active: MenuStore.active
+            active: 0
         }
 
         this.area = area
         this.Swiper = null
 
-    }
-
-    computedActive(newIndex, oldIndex, tab) {
-        if (newIndex === oldIndex) { 
-            return tab
-        }
-        const minIndex = oldIndex
-        const maxIndex = newIndex
-
-        tab[maxIndex]['progress'] =  '100%'
-        tab[minIndex]['progress'] =  '100%'
-        tab[maxIndex]['run'] = 'left'
-        tab[minIndex]['run'] = 'right'
-        return tab
     }
 
     changeTab(index) {
@@ -81,13 +65,31 @@ class SwiperApp extends React.Component {
 
         this.Swiper && this.Swiper.slideTo(index, 1000, false)
         
-        const tab = this.computedActive(index,this.state.active,this.state.tab)
 
-        MenuStore.changeActive(index) 
+        if (index > this.state.active + 1) {
+            //向右跨多个
+            const minIndex = this.state.active
+            const maxIndex = index
+
+            this.state.tab[maxIndex]['progress'] =  '100%'
+            this.state.tab[minIndex]['progress'] =  '100%'
+            this.state.tab[maxIndex]['run'] = 'left'
+            this.state.tab[minIndex]['run'] = 'right'
+
+        } else if(index < this.state.active -1){ 
+            //向左跨多个
+            const minIndex = this.state.active
+            const maxIndex = index
+
+            this.state.tab[maxIndex]['progress'] =  '100%'
+            this.state.tab[minIndex]['progress'] =  '100%'
+            this.state.tab[maxIndex]['run'] = 'left'
+            this.state.tab[minIndex]['run'] = 'right'
+        }
         
         this.setState({
             active: index,
-            tab
+            tab:this.state.tab
         })
     }
 
@@ -111,7 +113,6 @@ class SwiperApp extends React.Component {
             on: {
                 slideChangeTransitionEnd: function () {
                     const activeIndex = this.activeIndex
-                    MenuStore.changeActive(activeIndex)
                     self.setState({
                         active: activeIndex
                     })

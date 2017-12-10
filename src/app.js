@@ -6,22 +6,17 @@ import { inject } from 'mobx-react'
 import Index from './pages/index/index.js'
 import Home from './pages/home/index.js'
 
-import Footer from './components/footer'
-
 @inject('Env')
 export default class App extends React.Component {
     render() {
         const { dev } = this.props.Env
         const Router =  dev ? BrowserRouter : HashRouter
         return (
-            <Router>
-                <div>                       
-                    <Switch>
-                        <Route exact path="/" component={Index} />
-                        <Route path="/home/:id" component={Home} />
-                    </Switch>
-                    <Footer />
-                </div>
+            <Router>                   
+                <Switch>
+                    <Route exact path="/" component={Index} />
+                    <Route path="/home/:id" component={Home} />
+                </Switch>
             </Router>
         )
     }
