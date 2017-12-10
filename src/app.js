@@ -8,11 +8,13 @@ import Home from './pages/home/index.js'
 
 import Footer from './components/footer'
 
-
+@inject('Env')
 export default class App extends React.Component {
     render() {
+        const { dev } = this.props.Env
+        const Router =  dev ? BrowserRouter : HashRouter
         return (
-            <BrowserRouter>
+            <Router>
                 <div>                       
                     <Switch>
                         <Route exact path="/" component={Index} />
@@ -20,7 +22,7 @@ export default class App extends React.Component {
                     </Switch>
                     <Footer />
                 </div>
-            </BrowserRouter>
+            </Router>
         )
     }
 }
