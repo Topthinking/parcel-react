@@ -12,13 +12,13 @@
     position: fixed;
     height: 50px;
     z-index: 9;
-    bottom: 0 !important;
-    background-color: #fff;
+    bottom: 0 !important;    
     ul{
         max-width: 600px;
         margin: 0 auto;
         height: 100%;
         display: flex;
+        background-color: #fff;
         justify-content: space-around;
         align-items: center;
     }
