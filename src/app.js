@@ -3,7 +3,7 @@ import { HashRouter, BrowserRouter, Route, Switch, Redirect } from 'react-router
 import { inject } from 'mobx-react'
 //import MobxDevTools from 'mobx-react-devtools'
 
-import Index from './pages/index/index.js'
+import Index from './pages/index/index.jsx'
 import Home from './pages/home/index.js'
 
 @inject('Env')

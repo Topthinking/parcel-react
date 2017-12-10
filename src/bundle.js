@@ -29,8 +29,8 @@ export default (props = {}) => {
 
                 if (loading) {
                     Component = await props.template
-                }    
-                
+                }  
+                                
                 if (Component != null) {
                     _Component.push({
                         name,

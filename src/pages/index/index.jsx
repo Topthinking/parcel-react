@@ -207,7 +207,7 @@ class SwiperApp extends React.Component {
     }
 }
 
-export default inject('Env')(CSSModules(SwiperApp, style, {
+export default CSSModules(SwiperApp, style, {
     handleNotFoundStyleName: 'ignore',
     allowMultiple: true
-}))
+})

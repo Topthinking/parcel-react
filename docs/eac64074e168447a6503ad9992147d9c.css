@@ -1,3 +1,52 @@
+._wraper_pwysk_1, ._swiper-container_pwysk_1 {
+  width: 100%;
+  height: 100%; }
+
+._swiper-pagination_pwysk_5 {
+  width: 100%;
+  position: fixed;
+  height: 50px;
+  z-index: 9;
+  bottom: 0 !important;
+  background-color: #fff; }
+  ._swiper-pagination_pwysk_5 ul {
+    max-width: 600px;
+    margin: 0 auto;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+  ._swiper-pagination_pwysk_5 li {
+    float: left;
+    cursor: pointer;
+    position: relative;
+    width: 100px;
+    text-align: center; }
+    ._swiper-pagination_pwysk_5 li ._item_pwysk_25 {
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+      white-space: pre; }
+    ._swiper-pagination_pwysk_5 li ._item_pwysk_25:before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: block;
+      content: attr(data-content);
+      overflow: hidden; }
+    ._swiper-pagination_pwysk_5 li ._itemleft_pwysk_37 {
+      color: #000; }
+    ._swiper-pagination_pwysk_5 li ._itemleft_pwysk_37:before {
+      color: #f00; }
+    ._swiper-pagination_pwysk_5 li ._itemright_pwysk_41 {
+      color: #f00; }
+    ._swiper-pagination_pwysk_5 li ._itemright_pwysk_41:before {
+      color: #000; }
 /**
  * Swiper 4.0.7
  * Most modern mobile touch slider and framework with hardware accelerated transitions
