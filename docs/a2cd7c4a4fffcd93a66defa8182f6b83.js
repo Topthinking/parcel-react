@@ -65,11 +65,11 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({22:[function(require,module,exports) {
+})({27:[function(require,module,exports) {
 module.exports = {
   "back": "_back_migdb_1"
 };
-},{"./images/1.jpg":["1876a9dfe3a12ec0af40f8373b0d430e.jpg",29]}],12:[function(require,module,exports) {
+},{"./images/1.jpg":["1876a9dfe3a12ec0af40f8373b0d430e.jpg",44]}],18:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -142,4 +142,4 @@ var Home = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Home;
-},{"./index.scss":22,"react":17,"react-router-dom":28}]},{},[12])
+},{"./index.scss":27,"react":13,"react-router-dom":29}]},{},[18])
