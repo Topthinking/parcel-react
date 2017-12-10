@@ -1,6 +1,6 @@
 # Parcel 打包 React项目
 
-项目中集成了`react-router-dom` `swiper`
+项目中集成了`react-router-dom` `swiper` `mobx`
 
 目前仅开放环境可以调通，热更新和发布`parcel`还没完善
 
@@ -20,7 +20,7 @@ npm install
 npm run dev
 ```
 
-本地`http://localhost:1234`查看
+本地`http://localhost:3000`查看
 
 ### [Parcel gitHub](https://github.com/parcel-bundler/parcel)
 
@@ -33,7 +33,7 @@ npm run dev
 - [x] 文件结构
 - [x] 代码拆分 通过`bundle.js`统一管理
 - [x] 学习Swiper
-- [ ] 打包发布
+- [x] 打包发布
 
 ### ⚠️  注意
 

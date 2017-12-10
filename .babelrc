@@ -2,14 +2,7 @@
     "presets": [
         "react",
         "es2015",
-        "stage-0",
-        "env"
+        "stage-1"
     ],
-    "env": {
-        "production": {
-            "presets": [
-                "minify"
-            ]
-        }
-    }
+    "plugins": ["transform-decorators-legacy"]
 }

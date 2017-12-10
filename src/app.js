@@ -1,26 +1,25 @@
-
 import React from 'react'
-import { HashRouter,BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
+import { HashRouter, BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
+import { inject } from 'mobx-react'
+//import MobxDevTools from 'mobx-react-devtools'
 
 import Index from './pages/index/index.js'
 import Home from './pages/home/index.js'
 
-import bg from './common/images/2.jpg' 
+import Footer from './components/footer'
 
-export default class App extends React.Component { 
-    render() { 
+
+export default class App extends React.Component {
+    render() {
         return (
             <BrowserRouter>
-                <div>  
+                <div>                       
                     <Switch>
                         <Route exact path="/" component={Index} />
-                        <Route path="/home/:id" component={Home}/>
+                        <Route path="/home/:id" component={Home} />
                     </Switch>
-                    <footer>
-                        <h2>Footer</h2>    
-                        <img src={`/dist/${bg}`} />
-                    </footer>    
-                </div>      
+                    <Footer />
+                </div>
             </BrowserRouter>
         )
     }

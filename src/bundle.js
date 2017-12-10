@@ -1,9 +1,11 @@
 import React from 'react'
+import { observer } from 'mobx-react'
 
 let _Component = []
 
 export default (props = {}) => {
     
+    @observer
     class Bundle extends React.Component {
     
         constructor() {
