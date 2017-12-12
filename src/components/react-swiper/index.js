@@ -94,7 +94,6 @@ export default class SwiperApp extends React.Component {
         this.area = area
         this.Swiper = null
         this.change = false
-        this.menuHeight = 0
         this.active = active
         this.isClick = false
 
@@ -136,14 +135,27 @@ export default class SwiperApp extends React.Component {
     }
 
     swiperContentHeight() { 
-        this.menuHeight = document.getElementsByClassName('menuList')[0].childNodes[0].offsetHeight            
-        const height = this.props.position === 'top' ?  document.body.offsetHeight + this.menuHeight :  document.body.offsetHeight - this.menuHeight        
+        const menuHeight = document.getElementsByClassName('menuList')[0].childNodes[0].offsetHeight            
+        const height = this.props.position === 'top' ?  document.body.offsetHeight + menuHeight :  document.body.offsetHeight -menuHeight        
        
         Array.from(document.getElementsByClassName('swiper-content')).map(item => {
             item.style.height = `${height}px`
             item.style.overflowY = 'auto'
             item.style['-webkit-overflow-scrolling'] = 'touch'
-        })           
+        })
+        
+        const container =  document.getElementById('swiper-container')
+        container.style.width = '100%'
+        container.style.height = '100%'
+
+        if(this.props.position === 'top'){
+            container.style.marginTop = `${menuHeight}px`
+            document.getElementsByClassName('fork')[0].style.top = `${menuHeight}px`
+            document.getElementsByClassName('fork')[0].style.right = 0
+            document.getElementsByClassName('fork')[0].style.position = 'absolute'
+            
+        }
+        
     }
 
     shouldComponentUpdate(nextProps, nextState) { 
@@ -259,29 +271,8 @@ export default class SwiperApp extends React.Component {
 
     render() {
         console.log('render')
-        //设置css样式
-        const containerStyle = {
-            width: '100%',
-            height: '100%',
-            overflow: 'hidden'
-        }
-
-        const paginationStyle = {
-            width: '100%',
-            position: 'fixed',
-            'zIndex': 9  
-        }
-
-        if (this.props.position === 'top') {
-            paginationStyle.top = '0'
-            paginationStyle.height = '0px'
-            containerStyle.marginTop = `${this.menuHeight}px`
-        } else {
-            paginationStyle.bottom = '0 !important'
-        }
-
         return (
-            <div className="swiper-container" id="swiper-container" style={containerStyle}>
+            <div className="swiper-container" id="swiper-container">
                 <div className="swiper-wrapper">
                     {this.state.tab.map((item, index) => {
                         const Component = Main(item.component)

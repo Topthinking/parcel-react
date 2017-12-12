@@ -28,6 +28,9 @@ export default class AppIndex extends React.Component {
                 component: <Mine />
             }]
         }
+
+        this.position = Math.floor(Math.random()*2) != 1 ? "bottom" : "top"
+        this.gradual = Math.floor(Math.random()*2)
     }
 
     //点击菜单切换事件
@@ -49,7 +52,7 @@ export default class AppIndex extends React.Component {
     }
 
     render() {
-
+        
         const wraperStyle = {
             width: '100%',
             height: '100%',
@@ -60,15 +63,15 @@ export default class AppIndex extends React.Component {
             <div className="wraper" style={wraperStyle}>
             <ReactSwiper
                 menu={this.state.menu}
-                position="bottom"
-                gradual={true}
+                position={this.position}
+                gradual={!!this.gradual}
                 active={this.state.active}
                 changeMenu={this.changeMenu.bind(this)}
                 loading={<Loading />}
                 scrollTop={false}
                 />
                 <SwiperPagination
-                    position="bottom"
+                    position={this.position}
                 >
                     <ul>
                         {this.state.menu.map((item, index) => {

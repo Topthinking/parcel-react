@@ -21,7 +21,7 @@ export default class App extends React.Component {
                         <Route path="/home/:id" component={Home} />
                     </Switch>
                     <Bg />
-                    <a href="https://github.com/Topthinking/parcel-react">  
+                    <a href="https://github.com/Topthinking/parcel-react" className="fork">  
                         <img style={{
                             position: "absolute",
                             top: 0,
