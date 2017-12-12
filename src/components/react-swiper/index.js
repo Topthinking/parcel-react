@@ -88,21 +88,26 @@ export default class SwiperApp extends React.Component {
                 
         this.state = {
             tab:menu,
-            areaState,
-            active
+            areaState
         }
 
         this.area = area
         this.Swiper = null
         this.change = false
         this.menuHeight = 0
+        this.active = active
+        this.isClick = false
+
+        this.hasLoaded = [active]
     }
 
+    //计算当前菜单栏的显示情况
     computedActive(newIndex, oldIndex, tab) {
         if (newIndex === oldIndex) { 
             tab[newIndex]['isLoading'] = true
             return tab
         }
+
 
         tab[newIndex]['progress'] =  '100%'
         tab[oldIndex]['progress'] =  '100%'
@@ -112,25 +117,22 @@ export default class SwiperApp extends React.Component {
 
         // 通知父组件 改变menu的值
         this.change = true
+        this.active = newIndex
         this.props.changeMenu(tab,newIndex)
-
-        return tab
     }    
 
+    //改变swiper当前所在屏
     changeTab(index) {
 
-        if (index == this.state.active) { 
+        if (index == this.active) { 
            return false
         }
 
         this.Swiper && this.Swiper.slideTo(index, 1000, false)
         
-        const tab = this.computedActive(index,this.state.active,this.state.tab)
+        this.computedActive(index,this.active,this.state.tab)
 
-        this.setState({
-            active: index,
-            tab
-        })
+        this.active = index
     }
 
     swiperContentHeight() { 
@@ -140,6 +142,7 @@ export default class SwiperApp extends React.Component {
         Array.from(document.getElementsByClassName('swiper-content')).map(item => {
             item.style.height = `${height}px`
             item.style.overflowY = 'auto'
+            item.style['-webkit-overflow-scrolling'] = 'touch'
         })           
     }
 
@@ -148,28 +151,40 @@ export default class SwiperApp extends React.Component {
         if (this.Swiper != null && this.change) { 
             return false
         }
+        //如果已经渲染过的swiper屏 阻止其继续渲染
+        if (this.hasLoaded.indexOf(nextProps.active) != -1) { 
+            return false
+        }
+        //正常渲染输出
+        this.hasLoaded.push(nextProps.active)
         return true
     }
 
     componentWillReceiveProps(nextProps) { 
         if (nextProps.active != this.props.active) {
+            //点击时候 触发的事件变化 也可以说是滑动到最后会触发点击事件
+            console.log('点击事件')
+            this.isClick = true
             // 说明是点击切换下一屏
             if (!this.change) {
                 this.changeTab(nextProps.active)
-            } else { 
+            } else {               
                 this.change = false
-                this.setState({
-                    active: nextProps.active,
-                    tab:nextProps.menu
-                })
-            }            
-        } else {
-            // 说明是传递新的props
-            this.change = false
+                this.isClick = false
+            }
+        } else {            
+            //此时change为true 滑动不会渲染
+            if (this.isClick) {
+                this.change = false  
+                this.isClick = false
+            } else { 
+                console.log('滑动事件')
+            }    
         }
     }
 
     componentDidMount() {
+        this.change = false        
         this.swiperContentHeight()
         window.addEventListener('resize', () => { 
             this.swiperContentHeight()
@@ -187,12 +202,8 @@ export default class SwiperApp extends React.Component {
             on: {
                 slideChangeTransitionEnd: function () {
                     const activeIndex = this.activeIndex                    
-                    
-                    if (!self.props.gradual) {
-                        self.computedActive(activeIndex, self.state.active, self.state.tab)
-                    } else { 
-                        self.props.changeMenu(self.state.tab,activeIndex)
-                    }
+
+                    self.computedActive(activeIndex, self.active, self.state.tab)
 
                     self.props.scrollTop && (document.getElementsByClassName('swiper-content')[activeIndex].scrollTop = 0)
                 },
@@ -203,7 +214,7 @@ export default class SwiperApp extends React.Component {
                      * 总数为1平分
                      * 平分区间 = 1/(总数-1) 
                     */
-                    if (progressed && self.props.gradual) {
+                    if (progressed && self.props.gradual && !self.isClick) {
                         self.state.areaState.map((item, index) => {
                             if (progress > lastProgress) {
                                 // 向右滑
@@ -217,11 +228,10 @@ export default class SwiperApp extends React.Component {
                                     self.state.tab[item['min-index']]['run'] = 'right'
 
                                     // 通知父组件 改变menu的值
-                                    // 通知父组件 改变menu的值
-                                    this.change = true
+                                    self.change = true
                                     self.props.changeMenu(self.state.tab)
                                 }
-                            } else {
+                            } else if(progress < lastProgress){
                                 // 向左滑
                                 if (progress >= item.min && lastProgress <= item.max) {
 
@@ -231,12 +241,13 @@ export default class SwiperApp extends React.Component {
                                     self.state.tab[item['min-index']]['progress'] = _area + '%'
                                     self.state.tab[item['max-index']]['run'] = 'left'
                                     self.state.tab[item['min-index']]['run'] = 'right'
-                                    
-                                    this.change = true
+                                
+                                    // 通知父组件 改变menu的值
+                                    self.change = true
                                     self.props.changeMenu(self.state.tab)
                                 }
                             }
-                        })
+                        })                          
                     } else {
                         progressed = true
                     }
@@ -247,7 +258,7 @@ export default class SwiperApp extends React.Component {
     }
 
     render() {
-        
+        console.log('render')
         //设置css样式
         const containerStyle = {
             width: '100%',
@@ -261,8 +272,6 @@ export default class SwiperApp extends React.Component {
             'zIndex': 9  
         }
 
-        const wraperStyle = Object.assign({},containerStyle) 
-
         if (this.props.position === 'top') {
             paginationStyle.top = '0'
             paginationStyle.height = '0px'
@@ -272,24 +281,42 @@ export default class SwiperApp extends React.Component {
         }
 
         return (
-            <div className="wraper" style={wraperStyle}>
-                <div className="swiper-container" id="swiper-container" style={containerStyle}>
-                    <div className="swiper-wrapper">
-                        {this.state.tab.map((item, index) => {
-                            const Component = Main(item.component)
-                            return (
-                                <div key={index} className="swiper-slide">
-                                    <div className="swiper-content">
-                                        <Component active={!!item.isLoading} loading={this.props.loading}/>
-                                    </div>
+            <div className="swiper-container" id="swiper-container" style={containerStyle}>
+                <div className="swiper-wrapper">
+                    {this.state.tab.map((item, index) => {
+                        const Component = Main(item.component)
+                        return (
+                            <div key={index} className="swiper-slide">
+                                <div className="swiper-content">
+                                    <Component active={!!item.isLoading} loading={this.props.loading}/>
                                 </div>
-                            )
-                        })}
-                    </div>
+                            </div>
+                        )
+                    })}
                 </div>
-                <div className="menuList" style={paginationStyle}>
-                    {this.props.children}
-                </div>
+            </div>
+        )
+    }
+}
+
+export class SwiperPagination extends React.Component { 
+    render() {
+        const paginationStyle = {
+            width: '100%',
+            position: 'fixed',
+            'zIndex': 9  
+        }
+
+        if (this.props.position === 'top') {
+            paginationStyle.top = '0'
+            paginationStyle.height = '0px'
+        } else {
+            paginationStyle.bottom = '0 !important'
+        }
+
+        return (
+            <div className="menuList" style={paginationStyle}>
+                {this.props.children}
             </div>
         )
     }
