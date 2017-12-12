@@ -7,12 +7,8 @@ import Bg from './components/bg'
 import Index from './pages/index/index.jsx'
 import Home from './pages/home/index.js'
 
-
 @inject('Env')
 export default class App extends React.Component {
-
-    
-
     render() {
         const { dev } = this.props.Env
         const Router =  dev ? BrowserRouter : HashRouter

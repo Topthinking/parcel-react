@@ -1,19 +1,5 @@
-
-@import '../../common/styles/mixin.scss';
-
-.wraper,.swiper-container{
-    width: 100%;
-    height: 100%;
-}
-
-//菜单控制器
-.swiper-pagination{
-    width: 100%;
-    position: fixed;
-    height: 50px;
-    z-index: 9;
-    bottom: 0 !important;    
-    ul{
+:global {
+    ul {
         max-width: 600px;
         margin: 0 auto;
         height: 100%;
@@ -21,21 +7,21 @@
         background-color: #fff;
         justify-content: space-around;
         align-items: center;
+        height: 50px;
     }
-    li{        
+    li {
         float: left;
         cursor: pointer;
         position: relative;
         width: 100px;
         text-align: center;
-        .item{
+        .item {
             display: inline-block;
             position: relative;
             overflow: hidden;
             white-space: pre;
         }
-
-        .item:before{
+        .item:before {
             position: absolute;
             left: 0;
             top: 0;
@@ -43,18 +29,16 @@
             content: attr(data-content);
             overflow: hidden;
         }
-
         .itemleft {
             color: #000;
         }
-        .itemleft:before {            
+        .itemleft:before {
             color: #f00;
         }
-
-        .itemright {           
-            color: #f00;            
+        .itemright {
+            color: #f00;
         }
-        .itemright:before {           
+        .itemright:before {
             color: #000;
         }
     }

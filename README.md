@@ -2,7 +2,9 @@
 
 整体感觉非常棒，无需配置，只需在开发或者打包的时候指定一个入口的html文件，便可完成对整个项目的打包工作
 
-项目中集成了`react-router-dom` `swiper` `mobx`
+项目中集成了`react-router-dom` `swiper` `mobx` 
+
+`swiper组件化使用`
 
 目前仅开放环境可以调通，热更新和发布`parcel`还没完善
 
@@ -57,6 +59,7 @@ npm run dev
 - [x] 学习Swiper
 - [x] 打包发布
 - [x] 实现微信页面左右滑动，菜单颜色渐变的效果
+- [x] 实现swiper组件化
 
 ## ⚠️
 

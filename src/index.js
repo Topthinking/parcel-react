@@ -7,7 +7,6 @@ import App from './app'
 import stores from './stores'
 
 import './common/styles/common.scss'
-import '../node_modules/swiper/dist/css/swiper.min.css'
 
 const dev = process.env.NODE_ENV != 'production'
 const assetPrefix = dev ? '/dist/' : ''
