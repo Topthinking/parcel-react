@@ -1,5 +1,5 @@
 ul {
-  max-width: 600px;
+  max-width: 560px;
   margin: 0 auto;
   height: 100%;
   display: -webkit-box;
@@ -592,16 +592,17 @@ button.swiper-pagination-bullet {
   bottom: 0; }
 html {
   width: 100%;
-  height: 100%; }
-  html * {
-    margin: 0;
-    padding: 0; }
+  height: 100%;
+  margin: 0;
+  padding: 0; }
 
 body {
   width: 100%;
   height: 100%;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
-  background: #f5f7f9; }
+  background: #f5f7f9;
+  margin: 0;
+  padding: 0; }
 
 #root {
   width: 100%;
