@@ -142,4 +142,4 @@ var Home = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Home;
-},{"./index.scss":21,"react":15,"react-router-dom":26}]},{},[14])
+},{"./index.scss":21,"react-router-dom":26,"react":16}]},{},[14])

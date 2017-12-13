@@ -31,8 +31,6 @@ export default class AppIndex extends React.Component {
 
         this.position = Math.floor(Math.random()*2) != 1 ? "bottom" : "top"
         this.gradual = Math.floor(Math.random() * 2)
-        
-        this.gradual = true
     }
 
     //点击菜单切换事件
