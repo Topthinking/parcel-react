@@ -296,14 +296,14 @@ export class SwiperPagination extends React.Component {
         const paginationStyle = {
             width: '100%',
             position: 'fixed',
-            'zIndex': 9  
+            'zIndex': 19  
         }
 
         if (this.props.position === 'top') {
             paginationStyle.top = '0'
             paginationStyle.height = '0px'
         } else {
-            paginationStyle.bottom = '0 !important'
+            paginationStyle.bottom = '0'
         }
 
         return (
