@@ -60,6 +60,7 @@ npm run dev
 - [x] 打包发布
 - [x] 实现微信页面左右滑动，菜单颜色渐变的效果
 - [x] 实现swiper组件化
+- [x] mobx Demo `npm run mobx`
 
 ## ⚠️
 

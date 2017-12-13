@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "parcel index.html -p 3000",
-    "build": "rm -rf docs && parcel build index.html -d docs --public-url ./ --no-minify"
+    "build": "rm -rf docs && parcel build index.html -d docs --public-url ./ --no-minify",
+    "mobx":"parcel mobx.html -p 3000"
   },
   "dependencies": {
     "autoprefixer": "^7.2.2",
