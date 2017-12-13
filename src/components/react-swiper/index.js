@@ -1,7 +1,8 @@
 import React from 'react'
 import { array, bool, oneOf, number, func } from 'prop-types'
 import Swiper from 'swiper'
-import './swiper.scss'
+
+import '../../../node_modules/swiper/dist/css/swiper.min.css'
 
 // 懒加载组件
 const Main = function (Component) { 

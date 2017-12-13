@@ -14,7 +14,7 @@ export default class Home extends React.Component {
                 <Link to="/home/12"><span>点击跳转</span></Link>
                 <br/>
                 <img src={`${assetPrefix}${bg}`} /> 
-                <p>不用屏的高度自适应</p>
+                <p>不同屏的高度自适应</p>
             </div>
         )
     }

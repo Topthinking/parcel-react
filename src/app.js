@@ -8,6 +8,8 @@ import Home from './pages/home/index.js'
 
 import fork from './common/images/fork.png'
 
+import './common/styles/app.scss'
+
 @inject('Env')
 export default class App extends React.Component {
     render() {
@@ -21,18 +23,7 @@ export default class App extends React.Component {
                         <Route path="/home/:id" component={Home} />
                     </Switch>
                     <Bg />
-                    <a href="https://github.com/Topthinking/parcel-react" className="fork">  
-                        <img style={{
-                            position: "absolute",
-                            top: 0,
-                            right: 0,
-                            width: '100px',
-                            zIndex:999,
-                            border: 0
-                        }}
-                        src={`${assetPrefix}${fork}`}
-                        alt="Fork me on GitHub"/>
-                    </a>
+                    <a href="https://github.com/Topthinking/parcel-react" className="fork"></a>
                 </div>     
             </Router>
         )
