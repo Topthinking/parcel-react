@@ -22,6 +22,7 @@ export default class Home extends React.Component {
                 <img src={`${assetPrefix}${bg}`} /> 
                 <img src={`${assetPrefix}${bg}`} /> 
                 <img src={`${assetPrefix}${bg}`} /> 
+                <p>我是有底线的</p>
             </div>
         )
     }
