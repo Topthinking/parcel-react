@@ -136,10 +136,8 @@ export default class SwiperApp extends React.Component {
 
     swiperContentHeight() { 
         const menuHeight = document.getElementsByClassName('menuList')[0].childNodes[0].offsetHeight            
-        const height = this.props.position === 'top' ?  document.body.offsetHeight + menuHeight*4 :  document.body.offsetHeight -menuHeight        
+        const height =  document.body.offsetHeight -menuHeight   
        
-        console.log(menuHeight,height,document.body.offsetHeight)
-
         Array.from(document.getElementsByClassName('swiper-content')).map(item => {
             item.style.height = `${height}px`
             item.style.overflowY = 'auto'
