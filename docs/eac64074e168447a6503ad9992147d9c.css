@@ -36,12 +36,8 @@ li {
     overflow: hidden; }
   li .itemleft {
     color: #000; }
-  li .itemleft:before {
-    color: #f00; }
   li .itemright {
     color: #f00; }
-  li .itemright:before {
-    color: #000; }
 /**
  * Swiper 4.0.7
  * Most modern mobile touch slider and framework with hardware accelerated transitions

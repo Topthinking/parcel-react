@@ -30,7 +30,9 @@ export default class AppIndex extends React.Component {
         }
 
         this.position = Math.floor(Math.random()*2) != 1 ? "bottom" : "top"
-        this.gradual = Math.floor(Math.random()*2)
+        this.gradual = Math.floor(Math.random() * 2)
+        
+        this.gradual = true
     }
 
     //点击菜单切换事件
@@ -51,8 +53,7 @@ export default class AppIndex extends React.Component {
         }    
     }
 
-    render() {
-        
+    render() {        
         const wraperStyle = {
             width: '100%',
             height: '100%',
@@ -75,6 +76,23 @@ export default class AppIndex extends React.Component {
                 >
                     <ul>
                         {this.state.menu.map((item, index) => {
+
+                            let _class = ''
+
+                            if (index == this.state.active) {
+                                _class = 'itemright'
+                            } else { 
+                                if (typeof item.scroll === 'undefined') {
+                                    _class = 'itemleft'
+                                }
+                            }
+                             
+                            if (item.scroll == 'left') {
+                                _class = 'itemleft'
+                            } else if(item.scroll == 'right'){ 
+                                _class = 'itemright'
+                            }
+                            
                             return (
                                 <li key={index}
                                     onClick={this.changeTab.bind(this, index)}
@@ -82,12 +100,11 @@ export default class AppIndex extends React.Component {
                                     <style dangerouslySetInnerHTML={{
                                         __html: `
                                     .item${index}:before{
-                                        width:${item.progress}
+                                        width:${item.progress};
+                                        color:${item.run == 'right' ? '#000' : '#f00'}
                                     }
                                     ` }}></style>
-                                    <span className={`item${index} item ${item.run == 'right' ? 'itemright' : 'itemleft'}`}
-                                        data-content={item.name}
-                                    >
+                                    <span className={`item${index} item ${_class}`} data-content={item.name}>
                                         {item.name}
                                     </span>
                                 </li>

@@ -239,6 +239,9 @@ export default class SwiperApp extends React.Component {
                                     self.state.tab[item['min-index']]['progress'] = _area + '%'
                                     self.state.tab[item['max-index']]['run'] = 'left'
                                     self.state.tab[item['min-index']]['run'] = 'right'
+                                    self.state.tab[item['max-index']]['scroll'] = ''
+                                    self.state.tab[item['min-index']]['scroll'] = ''
+                                    
 
                                     // 通知父组件 改变menu的值
                                     self.change = true
@@ -254,6 +257,8 @@ export default class SwiperApp extends React.Component {
                                     self.state.tab[item['min-index']]['progress'] = _area + '%'
                                     self.state.tab[item['max-index']]['run'] = 'left'
                                     self.state.tab[item['min-index']]['run'] = 'right'
+                                    self.state.tab[item['max-index']]['scroll'] = 'left'
+                                    self.state.tab[item['min-index']]['scroll'] = 'right'
                                 
                                     // 通知父组件 改变menu的值
                                     self.change = true
