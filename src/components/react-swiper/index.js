@@ -203,7 +203,9 @@ export default class SwiperApp extends React.Component {
             this.swiperContentHeight()
         })
         const self = this
-        let lastProgress = 0, progressed = false
+        let lastProgress = 0, progressed = false, startPageY = 0
+        
+        
         this.Swiper = new Swiper('#swiper-container', {
             watchSlidesProgress: true,
             initialSlide: self.state.active,
@@ -213,6 +215,57 @@ export default class SwiperApp extends React.Component {
                 clickable: true
             },
             on: {
+                touchStart: function(event){
+                   startPageY = event.touches[0].pageY
+                },
+                touchMove: function(event){
+                    //你的事件
+                    const end = event.changedTouches[0].pageY
+                    if(startPageY - end > 0 ) {//向上滑动 
+                        console.log('向上move')
+                    }else if(startPageY - end <0){//向下滑动 
+                        console.log('向下move')
+                    }
+                    const Obj = document.getElementsByClassName('swiper-content')[self.active]
+                    
+                        const contentTopHeight = Obj.scrollHeight - Obj.offsetHeight    
+
+                        const scrollTop = Obj.scrollTop
+                        
+                        console.log(scrollTop,contentTopHeight)
+
+                        if (scrollTop + 150 > contentTopHeight) { 
+                            console.log('触发下拉加载更多')
+                        }
+
+
+                },
+                touchEnd: function(event){
+                    //你的事件
+                    const end = event.changedTouches[0].pageY
+                    if(startPageY - end > 0 ) {//向上滑动 
+                        console.log('向上')
+                    }else if(startPageY - end <0){//向下滑动 
+                        console.log('向下')
+                    } 
+
+                    setTimeout(() => { 
+
+                        const Obj = document.getElementsByClassName('swiper-content')[self.active]
+                    
+                        const contentTopHeight = Obj.scrollHeight - Obj.offsetHeight    
+
+                        const scrollTop = Obj.scrollTop
+                        
+                        console.log(scrollTop,contentTopHeight)
+
+                        if (scrollTop + 150 > contentTopHeight) { 
+                            console.log('触发下拉加载更多')
+                        }
+                    
+                    },100)    
+
+                  },
                 slideChangeTransitionEnd: function () {
                     const activeIndex = this.activeIndex                    
 

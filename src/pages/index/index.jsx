@@ -1,4 +1,5 @@
 import React from 'react'
+import { inject } from 'mobx-react'
 import ReactSwiper, { SwiperPagination } from '../../components/react-swiper'
 import Index from '../../components/menu/index'
 import Home from '../../components/menu/home'
@@ -6,7 +7,9 @@ import Mine from '../../components/menu/mine'
 
 import Loading from '../../components/Loading'
 import './index.scss'
+import bg from '../home/images/1.jpg'
 
+@inject('Env')
 export default class AppIndex extends React.Component {
 
     constructor() {
@@ -51,6 +54,12 @@ export default class AppIndex extends React.Component {
         }    
     }
 
+    componentDidMount() { 
+        window.addEventListener('scroll',()=>{
+			console.log(2)
+		});
+    }
+
     render() {        
         const wraperStyle = {
             width: '100%',
@@ -58,8 +67,12 @@ export default class AppIndex extends React.Component {
             overflow: 'hidden'
         }
 
+        const { Env: { assetPrefix } } = this.props
+
         return (
             <div className="wraper" style={wraperStyle}>
+                   
+                
             <ReactSwiper
                 menu={this.state.menu}
                 position={this.position}
@@ -69,6 +82,7 @@ export default class AppIndex extends React.Component {
                 loading={<Loading />}
                 scrollTop={false}
                 />
+                
                 <SwiperPagination
                     position={this.position}
                 >
@@ -109,7 +123,7 @@ export default class AppIndex extends React.Component {
                             )
                         })}
                     </ul>
-                </SwiperPagination>    
+                </SwiperPagination>                 
             </div>
         )
     }
