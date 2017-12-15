@@ -83,3 +83,7 @@ redux 和 mobx 所作的渲染， 源码在本项目中，如果能解决，请�
 这是mobx数据渲染
 
 ![](./doc/mobx-render.png)
+
+👇 动态图
+
+![](./doc/redux-mobx.gif)

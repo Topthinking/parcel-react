@@ -28,6 +28,10 @@ export default class Item extends React.Component{
     }
 
     shouldComponentUpdate(nextProps) {
+
+        if (typeof nextProps.todo[this.props.index] == 'undefined') { 
+            return true
+        }
         
         if (nextProps.todo[this.props.index].finish == this.isfinish) { 
             return false
