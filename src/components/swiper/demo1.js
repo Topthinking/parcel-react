@@ -151,12 +151,12 @@ class Index extends React.Component {
                 <br />
                 <br />
                 <div className="swiper-pagination" styleName="swiper-pagination">
-                    <ul>
+                    <ul styleName="menu_list">
                         {this.state.tab.map((item, index) => {
                             return (
                                 <li key={index}
                                     onClick={this.changeTab.bind(this, index)}
-                                    styleName={index === this.state.active ? 'active' : ''}>
+                                    styleName={`menu ${index === this.state.active ? 'active' : ''}`}>
                                     <style dangerouslySetInnerHTML={{
                                         __html: `
                                         .item${index}:before{

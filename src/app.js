@@ -5,6 +5,7 @@ import { inject } from 'mobx-react'
 import Bg from './components/bg'
 import Index from './pages/index/index.jsx'
 import Home from './pages/home/index.js'
+import SwiperPage from './pages/swiper/index.js'
 
 import fork from './common/images/fork.png'
 
@@ -21,6 +22,7 @@ export default class App extends React.Component {
                     <Switch>
                         <Route exact path="/" component={Index} />
                         <Route path="/home/:id" component={Home} />
+                        <Route exact path="/swiper/:id" component={SwiperPage} />                                               
                     </Switch>
                     <Bg />
                     <a href="https://github.com/Topthinking/parcel-react" className="fork"></a>

@@ -72,7 +72,7 @@ export default class AppIndex extends React.Component {
                 <SwiperPagination
                     position={this.position}
                 >
-                    <ul>
+                    <ul className="menu_index_list">
                         {this.state.menu.map((item, index) => {
 
                             let _class = ''
@@ -93,6 +93,7 @@ export default class AppIndex extends React.Component {
                             
                             return (
                                 <li key={index}
+                                    className="menu_index"    
                                     onClick={this.changeTab.bind(this, index)}
                                 >
                                     <style dangerouslySetInnerHTML={{

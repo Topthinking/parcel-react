@@ -11,7 +11,7 @@ export default class Home extends React.Component {
         return (
             <div>
                 <h1>首页</h1> 
-                <Link to="/home/12"><span>点击跳转</span></Link>
+                <Link to="/swiper/1"><span>查看更多演示</span></Link>
                 <br/>
                 <img src={`${assetPrefix}${bg}`} /> 
                 <img src={`${assetPrefix}${bg}`} /> 
