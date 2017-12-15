@@ -56,11 +56,9 @@ npm run dev
 
 - [x] 文件结构
 - [x] 代码拆分 通过`bundle.js`统一管理
-- [x] 学习Swiper
 - [x] 打包发布
-- [x] 实现微信页面左右滑动，菜单颜色渐变的效果
-- [x] 实现swiper组件化
-- [x] mobx Demo `npm run mobx`
+- [x] swiper组件化，封装swiper.js了
+- [x] mobx `npm run mobx` &middot; `http://localhost:3000`
 
 ## ⚠️
 
