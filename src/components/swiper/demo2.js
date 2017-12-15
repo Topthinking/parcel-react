@@ -71,6 +71,7 @@ class Index extends React.Component {
                 type: 'custom',
                 clickable: true
             },
+            nested:true,
             scrollbar: {
                 el: '.swiper-scrollbar',
                 hide: true,
@@ -97,7 +98,6 @@ class Index extends React.Component {
             watchSlidesProgress: true,
             initialSlide: 0,
             nested:true,
-            resistanceRatio: 0,
             pagination: {
                 el: '.swiper-pagination',
                 type: 'custom',
