@@ -5,24 +5,29 @@ import { connect } from 'react-redux'
 
 import * as todoActions from '../stores/todo'
 
+import Input from '../components/todo/input'
 import List from '../components/todo/list'
 
 import { is } from 'immutable'
 
-@connect(state => state, (dispatch) => ({
+@connect(state => ({}), (dispatch) => ({
     todoAction: bindActionCreators(todoActions, dispatch)
 }))
 export default class Index extends React.Component {
 
-    onClick() {
-        this.props.todoAction.add({
-            name: '123'
-        })
-    }
-
     shouldComponentUpdate(nextProps = {}, nextState = {}) {
+
+        // console.log('输出',this.props,nextProps)
+
+        // console.log(is(this.props, nextProps))
+
+        // return !(this.props === nextProps || is(this.props, nextProps)) ||
+        //     !(this.state === nextState || is(this.state, nextState));
+        
         const thisProps = this.props || {}, thisState = this.state || {};
         nextState = nextState | {}
+
+        //console.log(nextProps,this.props)
 
         if ( Object.keys(thisProps).length !== Object.keys(nextProps).length ||
              Object.keys(thisState).length !== Object.keys(nextState).length) {
@@ -31,7 +36,7 @@ export default class Index extends React.Component {
 
         for (const key in nextProps) {
             if (!is(thisProps[key], nextProps[key])) {
-                console.log(nextProps[key])
+                //console.log(thisProps[key],nextProps[key])
                 return true
             }
         }
@@ -58,8 +63,7 @@ export default class Index extends React.Component {
         console.log('渲染【Index】组件')
         return (
             <div>
-                <h3>redux study (打开控制台查看打印)</h3>
-                <span onClick={this.onClick.bind(this)}>打开控制台点击看看</span>
+                <Input/>
                 <List />
             </div>
         )

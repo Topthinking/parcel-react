@@ -3,13 +3,38 @@ import { observable,action,computed } from 'mobx'
 class Todo {
     @observable list = []
     @observable content = ''
+    @observable index = 0
+
+    constructor() { 
+        [...Array(100)].map((item,index) => { 
+            this.list.push({
+                name: Math.random(),
+                finish: false,
+                id:index
+            })
+        })
+    }
 
     @action
     addTodo(content){
-        if(this.content != ''){
+        if(content.name != ''){
             this.list.unshift(content)
-            this.content = ''
+            this.content = content
         }
+    }
+
+    @action
+    setIndex(index) {
+        this.index = index
+    }
+    
+    @computed get item() {
+        console.log(this.index,this.list.slice().length)
+        if (this.index+1 == this.list.slice().length) { 
+            return this.content
+        }
+        
+        return {name:123}
     }
 
     @action

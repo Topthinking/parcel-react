@@ -5,7 +5,8 @@ import Todo from '../../store/todo'
 @observer
 export default class Item extends React.Component{
 
-    render(){
+    render() {
+        console.log('渲染Item组件')
         const data = Todo.list[this.props.index]
         return(
             <li>

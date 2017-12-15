@@ -1,19 +1,38 @@
 import React from 'react'
-
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
-@connect(state => state)
+import * as todoActions from '../../stores/todo'
+
+import Item from './item'
+
+@connect(state => ({
+    todo:state.todo.get(todoActions.NAME)
+}))
 export default class List extends React.Component {
+    
     shouldComponentUpdate(nextProps) { 
-        if (nextProps.todo.name == this.props.todo.name) { 
+        if (nextProps.todo.length == this.props.todo.length) { 
             return false
         }
         return true
     }
+
     render() {
         console.log('渲染【List】组件')
+
+        const { todo } = this.props
+
+        if(todo.length === 0){
+            return null
+        }  
+
         return (
-            <h2>{this.props.todo.name}</h2>
+            <ul>
+                {todo.map((item,index)=>{
+                    return <Item key={item.id} index={index}/>
+                })}
+            </ul>
         )
     }
 }

@@ -8,12 +8,12 @@ import List from '../components/todo/list'
 
 @observer
 export default class TodoComponent extends React.Component{
-    render(){
-        const list = Todo.list.slice()
+    render() {
+        console.log('渲染Todo组件')
         return(
             <div>
                 <Input />
-                {list.length ? <List/> : null}
+                <List/>
             </div>
         )
     }

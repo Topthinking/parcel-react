@@ -6,18 +6,22 @@ import Todo from '../../store/todo'
 @observer
 export default class List extends React.Component{
 
-    add(){
+    input = ''
+
+    add() {
         Todo.addTodo({
-            name:Todo.content,
+            name:this.input.value,
             id:Todo.list.length+1,
             finish:false
         })
+        this.input.value = ''
     }
 
-    render(){
+    render() {
+        console.log('渲染输入框')        
         return(
             <div>
-                <input type="text" value={Todo.content} onChange={(e)=>{Todo.changeContent(e)}}/>
+                <input type="text" ref={(e)=>(this.input = e)}/>
                 <span onClick={this.add.bind(this)}>添加</span>
             </div>
         )

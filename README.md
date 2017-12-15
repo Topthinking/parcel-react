@@ -63,3 +63,23 @@ npm run dev
 ## ⚠️
 
 css在引用图片资源时，用引号包裹起来，不包裹，`parcel`会不识别
+
+##  对比 redux mobx 差异
+
+👇先看两幅对比图
+
+这两幅图都是针对默认有100个todo item的情况下，添加一个item的动作下
+
+redux 和 mobx 所作的渲染， 源码在本项目中，如果能解决，请提出 Issues
+
+`npm run redux`  &middot;  `npm run mobx`
+
+主要看右边的控制台打印结果
+
+这是redux数据渲染
+
+![](./doc/redux-render.png)
+
+这是mobx数据渲染
+
+![](./doc/mobx-render.png)

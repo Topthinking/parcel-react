@@ -6,12 +6,12 @@ import Item from './item'
 
 @observer
 export default class List extends React.Component{
-    render(){
+    render() {
+        console.log('渲染List组件')
         const list = Todo.list.slice()
         if(list.length === 0){
             return null
-        }
-
+        }        
         return (
             <ul>
                 {list.map((item,index)=>{
