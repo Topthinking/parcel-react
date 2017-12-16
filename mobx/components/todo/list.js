@@ -8,13 +8,13 @@ import Item from './item'
 export default class List extends React.Component{
     render() {
         console.log('渲染List组件')
-        const list = Todo.list.slice()
-        if(list.length === 0){
-            return null
-        }        
+        // const list = Todo.list.slice()
+        // if(list.length === 0){
+        //     return null
+        // }        
         return (
             <ul>
-                {list.map((item,index)=>{
+                {Todo.list.slice().map((item,index)=>{
                     return <Item key={item.id} index={index}/>
                 })}
             </ul>

@@ -6,7 +6,7 @@ class Todo {
     @observable index = 0
 
     constructor() { 
-        [...Array(100)].map((item,index) => { 
+        [...Array(1000)].map((item,index) => { 
             this.list.push({
                 name: Math.random(),
                 finish: false,

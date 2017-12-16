@@ -24,7 +24,12 @@ export default class Item extends React.Component{
     }
 
     del = () => { 
+        console.log('点击删除')
         this.props.todoAction.del(this.props.index)        
+    }
+
+    componentWillReceiveProps() { 
+        console.log('接受receiveProps')
     }
 
     shouldComponentUpdate(nextProps) {
@@ -40,6 +45,10 @@ export default class Item extends React.Component{
         this.isfinish = !this.isfinish
         
         return true
+    }
+
+    componentDidUpdate() { 
+        console.log('删除完成')
     }
 
     render() {

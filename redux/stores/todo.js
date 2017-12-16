@@ -49,7 +49,7 @@ export default function todo(state = initiState, action) {
         break;     
         default:
             const _list = []
-            const initiData = [...Array(100)].map((item, index) => { 
+            const initiData = [...Array(1000)].map((item, index) => { 
                 _list.push({
                     name: Math.random(),
                     finish: false,
