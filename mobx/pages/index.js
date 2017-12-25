@@ -13,6 +13,12 @@ export default class List extends React.Component{
                     <li>
                         <Link to="/base">Mobx基础操作</Link>                        
                     </li>
+                    <li>
+                    <Link to="/fun">func</Link>                        
+                    </li>
+                    <li>
+                    <Link to="/inject">inject</Link>                        
+                </li>    
                </ul>
             </div>
         )

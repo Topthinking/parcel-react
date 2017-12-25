@@ -10,11 +10,17 @@ export default class List extends React.Component{
 
     add() {
         Todo.addTodo({
-            name:this.input.value,
+            name:Math.random(),
             id:Todo.list.length+1,
             finish:false
         })
         this.input.value = ''
+    }
+
+    componentDidMount() { 
+        // setInterval(() => { 
+        //     this.add()
+        // },150)
     }
 
     render() {

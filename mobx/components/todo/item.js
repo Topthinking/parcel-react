@@ -15,14 +15,10 @@ export default class Item extends React.Component{
     }
 
     componentDidUpdate() {
-        console.log('删除完成')
+        //console.log('删除完成')
         if (!this.state.show) {
             Todo.delete(this.props.index)
         }    
-    }
-
-    componentWillReceiveProps() { 
-        console.log('ReceiveProps')
     }
 
     render() {

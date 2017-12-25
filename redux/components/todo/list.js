@@ -18,7 +18,12 @@ export default class List extends React.Component {
         return true
     }
 
+    componentDidUpdate() { 
+        console.timeEnd()
+    }
+
     render() {
+        console.time()
         console.log('渲染【List】组件')
 
         const { todo } = this.props

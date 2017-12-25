@@ -64,26 +64,8 @@ npm run dev
 
 css在引用图片资源时，用引号包裹起来，不包裹，`parcel`会不识别
 
-##  对比 redux mobx 差异
+##  mobx使用方式
 
-👇先看两幅对比图
-
-这两幅图都是针对默认有100个todo item的情况下，添加一个item的动作下
-
-redux 和 mobx 所作的渲染， 源码在本项目中，如果能解决，请提出 Issues
-
-`npm run redux`  &middot;  `npm run mobx`
-
-主要看右边的控制台打印结果
-
-这是redux数据渲染
-
-![](./doc/redux-render.png)
-
-这是mobx数据渲染
-
-![](./doc/mobx-render.png)
-
-👇 动态图
-
-![](./doc/redux-mobx.gif)
+1.记住不要在store里面进行实例化操作，即返回的是一个类,不是一个实例化的对象
+2.如果全局的store使用，可以直接在store里面返回一个实例化的对象，那么在每个子组件需要的地方直接import使用
+3.如果是组件之间的数据通信，请在父组件的构造函数中进行store的实例化操作，使用`mobx-react`的`Provider`进行数据的传递，那么在子组件中使用`inject`获取store对象来通过`props`操作数据

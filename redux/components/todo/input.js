@@ -14,19 +14,25 @@ export default class List extends React.Component{
     input = ''
 
     add() {
-        if (this.input.value != '') {
+        //if (this.input.value != '') {
             this.props.todoActions.add({
-                name: this.input.value,
+                name: Math.random(),
                 finish: false,
                 id: this.props.todo.length + 1
             })
-        }    
+        //}    
 
         this.input.value = ''
     }
 
     shouldComponentUpdate() { 
         return false
+    }
+
+    componentDidMount() { 
+        // setInterval(() => { 
+        //     this.add()
+        // },150)
     }
 
     render() {

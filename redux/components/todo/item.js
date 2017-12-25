@@ -28,23 +28,23 @@ export default class Item extends React.Component{
         this.props.todoAction.del(this.props.index)        
     }
 
-    componentWillReceiveProps() { 
-        console.log('接受receiveProps')
-    }
+    // componentWillReceiveProps() { 
+    //     //console.log('接受receiveProps')
+    // }
 
     shouldComponentUpdate(nextProps) {
 
-        if (typeof nextProps.todo[this.props.index] == 'undefined') { 
-            return true
-        }
+        // if (typeof nextProps.todo[this.props.index] == 'undefined') { 
+        //     return true
+        // }
         
-        if (nextProps.todo[this.props.index].finish == this.isfinish) { 
-            return false
-        }
+        // if (nextProps.todo[this.props.index].finish == this.isfinish) { 
+        //     return false
+        // }
 
-        this.isfinish = !this.isfinish
+        // this.isfinish = !this.isfinish
         
-        return true
+        return false
     }
 
     componentDidUpdate() { 
