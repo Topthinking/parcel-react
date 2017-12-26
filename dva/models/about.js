@@ -2,14 +2,18 @@
 export default {
     namespace: 'about',
     state: {
-        list: [{
-            id: 1,
-            name: '写作业',
-            finish: false
-        }]
+        list: [],
+        load: false
     },
     reducers: {
-        addTodoContentSuccess({ list }, { content }) {
+        beforeAdd(state, { load = false}) { 
+            return {
+                ...state,
+                load
+            }
+        },
+        addTodoContentSuccess(state, { content }) {
+            const { list } = state
             list.push({
                 id: list.length + 1,
                 name: content,
@@ -17,16 +21,45 @@ export default {
             })
             
             return {
+                ...state,
+                load:false,
+                list:list.slice()
+            }
+        },
+        finish(state, { id }) { 
+            const { list } = state
+
+            list.map(item => { 
+                item.finish = item.id == id ? !item.finish : item.finish
+            })
+
+            return {
+                ...state,
+                list:list.slice()
+            }
+        },
+        delete(state, { id }) { 
+            let { list } = state
+
+            list = list.filter(item => item.id != id)
+
+            return {
+                ...state,
                 list:list.slice()
             }
         }
     },
     effects: {
-        * addTodoContent({ inputRef }, { call, put }) { 
+        * addTodoContent({ inputRef }, saga) {
+            const { put ,call} = saga
             const content = inputRef.value
             if (content != '') {
+                yield put({ type: 'beforeAdd',load:true })            
                 inputRef.value = ''
-                yield put({ type: 'addTodoContentSuccess',content })
+                yield call(time => (
+                    new Promise(resolve => setTimeout(resolve, time))
+                ),1500)
+                yield put({ type: 'addTodoContentSuccess', content })                             
             }    
         }
     }
