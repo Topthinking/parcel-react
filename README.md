@@ -65,7 +65,7 @@ npm run dev
 
 ## 演示
 
-[地址](https://topthinking.github.io/parcel-react/src/#/)
+[地址](https://topthinking.github.io/parcel-react/#/)
 
 扫码查看
 
