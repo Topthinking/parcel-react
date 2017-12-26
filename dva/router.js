@@ -1,10 +1,14 @@
 import React from 'react'
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
+  HashRouter,
   Route, Switch
 } from 'react-router-dom'
 import HomePage from './pages/home'
 import AboutPage from './pages/about'
+
+const Router = process.env.NODE_ENV != 'production' ? BrowserRouter : HashRouter
+
 
 export default () => (
     <Router>

@@ -1,5 +1,5 @@
 import React from 'react'
-import {BrowserRouter, Route, Switch, Link } from 'react-router-dom'
+import {BrowserRouter, HashRouter,Route, Switch, Link } from 'react-router-dom'
 import Index from './pages/index'
 import TodoComponent from './pages/todo'
 import Base from './pages/base'
@@ -10,8 +10,9 @@ import Strict from './pages/strict'
 export default class App extends React.Component {
     render() {
         console.log('初始化组件')
+        const Router = process.env.NODE_ENV != 'production' ? BrowserRouter : HashRouter
         return (
-            <BrowserRouter>
+            <Router>
                 <div id="app">
                     <div style={{
                         position: 'absolute',
@@ -33,7 +34,7 @@ export default class App extends React.Component {
                         left: 0
                     }}>返回</span></Link>
                 </div>     
-            </BrowserRouter>
+            </Router>
         )
     }
 }

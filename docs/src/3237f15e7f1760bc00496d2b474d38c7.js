@@ -65,11 +65,11 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({97:[function(require,module,exports) {
+})({27:[function(require,module,exports) {
 module.exports = {
-  "back": "_back_migdb_1"
+  "back": "_back_a2ekk_1"
 };
-},{"./images/1.jpg":["1876a9dfe3a12ec0af40f8373b0d430e.jpg",337]}],66:[function(require,module,exports) {
+},{"./images/1.jpg":["c3c9f104ffa4c10c60fa0f1c73d3dc90.jpg",52]}],15:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -77,7 +77,25 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = undefined;
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = require("babel-runtime/core-js/object/get-prototype-of");
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = require("babel-runtime/helpers/classCallCheck");
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require("babel-runtime/helpers/createClass");
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require("babel-runtime/helpers/possibleConstructorReturn");
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require("babel-runtime/helpers/inherits");
+
+var _inherits3 = _interopRequireDefault(_inherits2);
 
 var _react = require("react");
 
@@ -91,22 +109,15 @@ var _index2 = _interopRequireDefault(_index);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 var Home = function (_React$Component) {
-  _inherits(Home, _React$Component);
+  (0, _inherits3.default)(Home, _React$Component);
 
   function Home() {
-    _classCallCheck(this, Home);
-
-    return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).apply(this, arguments));
+    (0, _classCallCheck3.default)(this, Home);
+    return (0, _possibleConstructorReturn3.default)(this, (Home.__proto__ || (0, _getPrototypeOf2.default)(Home)).apply(this, arguments));
   }
 
-  _createClass(Home, [{
+  (0, _createClass3.default)(Home, [{
     key: "render",
     value: function render() {
       var id = this.props.match.params.id;
@@ -137,9 +148,8 @@ var Home = function (_React$Component) {
       );
     }
   }]);
-
   return Home;
 }(_react2.default.Component);
 
 exports.default = Home;
-},{"./index.scss":97,"react-router-dom":28,"react":9}]},{},[66])
+},{"./index.scss":27,"react":20,"react-router-dom":36,"babel-runtime/helpers/classCallCheck":67,"babel-runtime/helpers/possibleConstructorReturn":69,"babel-runtime/helpers/createClass":68,"babel-runtime/helpers/inherits":70,"babel-runtime/core-js/object/get-prototype-of":97}]},{},[15])

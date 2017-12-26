@@ -4,11 +4,15 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "parcel index.html -p 3000",
-    "build": "rm -rf docs && parcel build index.html -d docs --public-url ./ --no-minify",
+    "dev": "parcel src.html -p 3000",
+    "build":"npm run build_src && npm run build_mobx && npm run build_redux && npm run build_dva",
+    "build_src": "rm -rf docs/src && parcel build src.html -d docs/src --public-url ./ --no-minify",
     "mobx": "parcel mobx.html -p 3001",
+    "build_mobx": "rm -rf docs/mobx && parcel build mobx.html -d docs/mobx --public-url ./ --no-minify",
     "redux": "parcel redux.html -p 3002",
-    "dva": "parcel dva.html -p 3003"
+    "build_redux": "rm -rf docs/redux && parcel build redux.html -d docs/redux --public-url ./ --no-minify",
+    "dva": "parcel dva.html -p 3003",
+    "build_dva": "rm -rf docs/dva && parcel build dva.html -d docs/dva --public-url ./ --no-minify"    
   },
   "dependencies": {
     "autoprefixer": "^7.2.2",
