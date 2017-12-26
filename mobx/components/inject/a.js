@@ -10,7 +10,7 @@ export default class A extends React.Component {
 
     componentDidMount() { 
         setTimeout(() => { 
-            this.props.NewMobx.name = '改变了a'
+            //this.props.NewMobx.name = '改变了a'
         },1000)        
     }
 

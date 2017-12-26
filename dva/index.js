@@ -1,27 +1,15 @@
-import dva, { connect } from 'dva';
-import { Router, Route, Switch, BrowserRouter } from 'react-router-dom';
-import fetch from 'dva/fetch';
-import React from 'react';
-import ReactDOM from 'react-dom'
+import dva from 'dva';
+import models from './models'
+import routers from './router'
+import Home from './models/home'
 
-// 1. Initialize
-const app = dva();
+const app = dva()
 
-// 2. Model
-// Remove the comment and define your model.
-//app.model({});
+// Plugins
+// app.use({});
 
-// 3. Router
-const HomePage = () => <div>Hello Dva.</div>;
-const App = () => (
-  <BrowserRouter>
-    <Switch>
-      <Route path="/about" exact component={HomePage} />
-    </Switch>
-  </BrowserRouter>
-);
+models.forEach(model => app.model(model))
 
-// 4. Start
-ReactDOM.render(
-    <App />    
-,document.getElementById("root"))
+app.router(routers)
+
+app.start('#root')

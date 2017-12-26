@@ -34,7 +34,8 @@ export default class C extends React.Component {
         })
     }
 
-    render() { 
+    render() {
+
         return (
             <Provider {...this.store}>
                 <div>

@@ -18,7 +18,10 @@ export default class List extends React.Component{
                     </li>
                     <li>
                     <Link to="/inject">inject</Link>                        
-                </li>    
+                    </li>   
+                    <li>
+                    <Link to="/strict">严格模式</Link>                        
+                </li>      
                </ul>
             </div>
         )

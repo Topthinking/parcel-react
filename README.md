@@ -58,7 +58,8 @@ npm run dev
 - [x] 代码拆分 通过`bundle.js`统一管理
 - [x] 打包发布
 - [x] swiper组件化，封装swiper.js了
-- [x] mobx `npm run mobx` &middot; `http://localhost:3000`
+- [x] mobx `npm run mobx` &middot; `http://localhost:3001`
+- [x] dva `npm run dva` &middot; `http://localhost:3003`
 
 ## ⚠️
 

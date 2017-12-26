@@ -5,8 +5,7 @@ import TodoComponent from './pages/todo'
 import Base from './pages/base'
 import Func from './pages/fun'
 import Inject from './pages/inject'
-
-
+import Strict from './pages/strict'
 
 export default class App extends React.Component {
     render() {
@@ -24,7 +23,8 @@ export default class App extends React.Component {
                             <Route exact path="/todo" component={TodoComponent} /> 
                             <Route exact path="/base" component={Base} />   
                             <Route exact path="/fun" component={Func} />
-                            <Route exact path="/inject" component={Inject} />                                                                                                        
+                            <Route exact path="/inject" component={Inject} /> 
+                            <Route exact path="/strict" component={Strict} />                                                                                                                                    
                         </Switch>
                     </div>       
                     <Link to="/"><span style={{

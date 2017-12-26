@@ -1,12 +1,18 @@
-import { observable,action,computed } from 'mobx'
+import { observable,action,computed,useStrict } from 'mobx'
+
 
 
 class CStore {
     
-    @observable name = 'ASDBASDASD'
+    @observable name = '子组件状态====CStore'
 
     constructor() { 
         console.log('初始化CStore mobx')
+    }
+
+    @action
+    changeName(name) { 
+        this.name = name
     }
 }
 
