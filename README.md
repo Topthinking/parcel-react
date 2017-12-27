@@ -20,8 +20,9 @@
 
 ## 需求
 
-- [x] swiper组件化，封装swiper.js了
+- [x] swiper组件化，封装swiper.js了 `npm run dev` &middot; `http://localhost:3000`
 - [x] mobx `npm run mobx` &middot; `http://localhost:3001`
+- [x] redux `npm run redux` &middot; `http://localhost:3002`
 - [x] dva `npm run dva` &middot; `http://localhost:3003`
 
 ##  mobx使用方式
