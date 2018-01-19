@@ -1,6 +1,28 @@
 
 # React &middot; 技术栈
 
+## ⚠️ 重要
+
+安装`parcel-bundler`版本`1.2.1`，版本`1.2.1`往后，会出现解析`babel`出错，目前还未解决
+
+具体可以去我提出的Issue中跟进，[链接地址](https://github.com/parcel-bundler/parcel/issues/408)
+```shell
+npm install parcel-bundler@1.2.1 -g
+```
+or
+
+```shell
+yarn global add parcel-bundler@1.2.1
+```
+
+## 🔦 Issue
+
+主要记录在`parcel`项目中提出的Issues
+
+1. 解决`mobx`的`mobx-react-devtools`引入报错问。[地址](https://github.com/parcel-bundler/parcel/issues/286)
+
+1. 解决`babel`编译出错的问题。[地址](https://github.com/parcel-bundler/parcel/issues/408)
+
 ## 写在前面
 
 主要通过`parcel`的无需配置的特点快速配置了和`react`相关的技术栈的demo
@@ -37,18 +59,8 @@
 
 整体感觉非常棒，无需配置，只需在开发或者打包的时候指定一个入口的html文件，便可完成对整个项目的打包工作
 
-
 ## 快速体验
 ```shell
-yarn global add parcel-bundler
-
-#or
-
-npm install -g parcel-bundler
-
-```
-```shell
-
 npm install
 
 npm run dev
@@ -60,9 +72,7 @@ npm run dev
 
 ### [Parcel gitHub](https://github.com/parcel-bundler/parcel)
 
-### [中文文档](http://www.parceljs.io)
-
-### [英文文档](https://parceljs.org/)
+### [文档](https://parceljs.org/)
 
 ## 演示
 

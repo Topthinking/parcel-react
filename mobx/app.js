@@ -1,5 +1,6 @@
 import React from 'react'
-import {BrowserRouter, HashRouter,Route, Switch, Link } from 'react-router-dom'
+import { BrowserRouter, HashRouter, Route, Switch, Link } from 'react-router-dom'
+import MobxDevTool from 'mobx-react-devtools'
 import Index from './pages/index'
 import TodoComponent from './pages/todo'
 import Base from './pages/base'
@@ -19,6 +20,7 @@ export default class App extends React.Component {
                         top: '30px',
                         left: 0
                     }}> 
+                    {/*process.env.NODE_ENV != 'production' ? <MobxDevTool /> : null*/}
                         <Switch>
                             <Route exact path="/" component={Index} />
                             <Route exact path="/todo" component={TodoComponent} /> 

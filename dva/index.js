@@ -2,7 +2,6 @@ import dva from 'dva';
 import models from './models'
 import routers from './router'
 import Home from './models/home'
-
 const app = dva()
 
 // Plugins

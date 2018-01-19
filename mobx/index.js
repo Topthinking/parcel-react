@@ -8,9 +8,8 @@ const store = {
     NewMobx: new NewMobx()
 }
 
-
 ReactDOM.render(
-    <Provider {...store}>    
-        <App /> 
-    </Provider>    
+    <Provider {...store}>
+        <App />
+    </Provider>  
 ,document.getElementById("root"))
