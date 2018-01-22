@@ -4,12 +4,10 @@ import {
   Link
 } from 'react-router-dom'
 
-export default connect(({ home }) => ({ 
-  home
-}))((props) => {
+export default connect()((props) => {
   return (
     <div>
-      <span>当前数字:{props.home.count}</span>
+      <span>当前数字:123</span>
       <button onClick={() => { props.dispatch({ type: 'home/addCount' }) }}>增加</button>
       <button onClick={() => { props.dispatch({ type: 'home/minusCount' }) }}>减少</button> 
       <br />

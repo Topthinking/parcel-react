@@ -6,6 +6,7 @@ export default {
     },
     reducers: {
         addCount(state) {
+            console.log(state)
             return {
                 count: state.count + 1
             }

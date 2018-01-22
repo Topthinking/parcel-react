@@ -5,6 +5,7 @@
         "stage-1"
     ],
     "plugins": [
+        "react-require",
         "transform-decorators-legacy",
         "transform-runtime"
     ]
