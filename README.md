@@ -1,18 +1,13 @@
 
 # React &middot; Parcel &middot; 实践
 
-## ⚠️ 重要
-
-安装`parcel-bundler`版本`1.2.1`，版本`1.2.1`往后，会出现解析`babel`出错，目前还未解决
-
-具体可以去我提出的Issue中跟进，[链接地址](https://github.com/parcel-bundler/parcel/issues/408)
 ```shell
-npm install parcel-bundler@1.2.1 -g
+npm install parcel-bundler -g
 ```
 or
 
 ```shell
-yarn global add parcel-bundler@1.2.1
+yarn global add parcel-bundler
 ```
 
 ## 🔦 Issue
